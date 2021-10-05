@@ -1,4 +1,4 @@
-import { delay, map, Observable, timeInterval, timer } from "rxjs";
+import { concatWith, delay, map, Observable, of, timeInterval, timer } from "rxjs";
 
 // @ts-ignore
 function setTimeoutObservable() {
@@ -37,8 +37,20 @@ function chainTimer() {
   ).subscribe(ms => console.log(`${ms} ms`));
 }
 
+// @ts-ignore
+function seqDelay() {
+  of(1,2).pipe(
+    delay(1000),
+    concatWith(of(3, 4)),
+    delay(1000),
+    concatWith(of(5, 6)),
+    delay(1000),
+  ).subscribe(console.log);
+}
+
 (() => {
   // setTimeoutObservable();
   // useTimer();
-  chainTimer();
+  // chainTimer();
+  seqDelay();
 })();
