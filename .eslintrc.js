@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -11,7 +12,5 @@ module.exports = {
   rules: {
     "no-unused-vars": "off",
     "no-empty-function": "off",
-    "@typescript-eslint/no-unused-vars": 0,
-    "@typescript-eslint/no-empty-function": 0,
   }
 };
