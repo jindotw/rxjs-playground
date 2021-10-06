@@ -1,7 +1,6 @@
 import { concatWith, delay, map, Observable, of, timeInterval, timer } from "rxjs";
 
-// @ts-ignore
-function setTimeoutObservable() {
+function useSetTimeout() {
   const source = new Observable(observer => {
     const timeoutId = setTimeout(() => {
       observer.next();
@@ -16,7 +15,6 @@ function setTimeoutObservable() {
   source.subscribe(fn);
 }
 
-// @ts-ignore
 function useTimer() {
   const source = timer(100);
   const fn = () => console.log("hello World 2");
@@ -27,7 +25,6 @@ function useTimer() {
   });
 }
 
-// @ts-ignore
 function chainTimer() {
   const source = timer(100);
   source.pipe(
@@ -37,7 +34,6 @@ function chainTimer() {
   ).subscribe(ms => console.log(`${ms} ms`));
 }
 
-// @ts-ignore
 function seqDelay() {
   of(1,2).pipe(
     delay(1000),
